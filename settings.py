@@ -4,7 +4,7 @@ import random
 from pyromod import listen
 from pyrogram import Client, filters
 from pyrogram.types.messages_and_media import message
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InputMediaPhoto
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
 def register_settings_handlers(bot):
@@ -21,64 +21,40 @@ def register_settings_handlers(bot):
             [InlineKeyboardButton("🔄 Reset", callback_data="resset_command")],
             [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main_menu")]
         ])
-        await callback_query.message.edit_media(
-        InputMediaPhoto(
-          media="https://envs.sh/GVI.jpg",
-          caption=caption
-        ),
-        reply_markup=keyboard
+        # PHOTO REMOVED
+        await callback_query.message.edit_text(
+            caption,
+            reply_markup=keyboard
         )
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
     @bot.on_callback_query(filters.regex("thummbnail_command"))
     async def cmd(client, callback_query):
         user_id = callback_query.from_user.id
         first_name = callback_query.from_user.first_name
-        caption = f"✨ **Welcome [{first_name}](tg://user?id={user_id})\nChoose Button to set Thumbnail**"
+        caption = f"✨ Welcome [{first_name}](tg://user?id={user_id})\nChoose Button to set Thumbnail"
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("🎥 Video", callback_data="viideo_thumbnail_command"), InlineKeyboardButton("📑 PDF", callback_data="pddf_thumbnail_command")],
             [InlineKeyboardButton("🔙 Back to Settings", callback_data="setttings")]
         ])
-        await callback_query.message.edit_media(
-        InputMediaPhoto(
-          media="https://tinypic.host/images/2025/07/14/file_00000000fc2461fbbdd6bc500cecbff8_conversation_id6874702c-9760-800e-b0bf-8e0bcf8a3833message_id964012ce-7ef5-4ad4-88e0-1c41ed240c03-1-1.jpg",
-          caption=caption
-        ),
-        reply_markup=keyboard
+        # PHOTO REMOVED
+        await callback_query.message.edit_text(
+            caption,
+            reply_markup=keyboard
         )
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
     @bot.on_callback_query(filters.regex("wattermark_command"))
     async def cmd(client, callback_query):
         user_id = callback_query.from_user.id
         first_name = callback_query.from_user.first_name
-        caption = f"✨ **Welcome [{first_name}](tg://user?id={user_id})\nChoose Button to set Watermark**"
+        caption = f"✨ Welcome [{first_name}](tg://user?id={user_id})\nChoose Button to set Watermark"
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("🎥 Video", callback_data="video_wateermark_command"), InlineKeyboardButton("📑 PDF", callback_data="pdf_wateermark_command")],
             [InlineKeyboardButton("🔙 Back to Settings", callback_data="setttings")]
         ])
-        await callback_query.message.edit_media(
-        InputMediaPhoto(
-          media="https://tinypic.host/images/2025/07/14/file_00000000fc2461fbbdd6bc500cecbff8_conversation_id6874702c-9760-800e-b0bf-8e0bcf8a3833message_id964012ce-7ef5-4ad4-88e0-1c41ed240c03-1-1.jpg",
-          caption=caption
-        ),
-        reply_markup=keyboard
-        )
-# .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
-    @bot.on_callback_query(filters.regex("set_token_command"))
-    async def cmd(client, callback_query):
-        user_id = callback_query.from_user.id
-        first_name = callback_query.from_user.first_name
-        caption = f"✨ **Welcome [{first_name}](tg://user?id={user_id})\nChoose Button to set Token**"
-        keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton("Classplus", callback_data="cp_token_command")],
-            [InlineKeyboardButton("Physics Wallah", callback_data="pw_token_command"), InlineKeyboardButton("Carrerwill", callback_data="cw_token_command")],
-            [InlineKeyboardButton("🔙 Back to Settings", callback_data="setttings")]
-        ])
-        await callback_query.message.edit_media(
-        InputMediaPhoto(
-          media="https://tinypic.host/images/2025/07/14/file_00000000fc2461fbbdd6bc500cecbff8_conversation_id6874702c-9760-800e-b0bf-8e0bcf8a3833message_id964012ce-7ef5-4ad4-88e0-1c41ed240c03-1-1.jpg",
-          caption=caption
-        ),
-        reply_markup=keyboard
+        # PHOTO REMOVED
+        await callback_query.message.edit_text(
+            caption,
+            reply_markup=keyboard
         )
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
     @bot.on_callback_query(filters.regex("caption_style_command"))
