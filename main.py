@@ -12,7 +12,7 @@ from pyromod import listen
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 from pyrogram.types.messages_and_media import message
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InputMediaPhoto
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
 import globals
 from logs import logging
@@ -42,7 +42,7 @@ keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("✨ Commands", callback_data="cmd_command")],
             [InlineKeyboardButton("💎 Features", callback_data="feat_command"), InlineKeyboardButton("⚙️ Settings", callback_data="setttings")],
             [InlineKeyboardButton("💳 Plans", callback_data="upgrade_command")],
-            [InlineKeyboardButton(text="📞 Contact", url=f"tg://openmessage?user_id={OWNER}"), InlineKeyboardButton(text="🛠️ Repo", url="https://github.com/nikhilsainiop/saini-txt-direct")],
+            [InlineKeyboardButton(text="📞 Contact", url=f"tg://openmessage?user_id={OWNER}")],
         ])      
 
 @bot.on_message(filters.command("start"))
@@ -67,10 +67,9 @@ async def start(bot, m: Message):
             f"**Want to get started? Press /id**\n\n"
             f"💬 Contact: [{CREDIT}](tg://openmessage?user_id={OWNER}) to Get The Subscription 🎫 and unlock the full potential of your new bot! 🔓\n"
         )
-    await bot.send_photo(
+    await bot.send_message(
         chat_id=m.chat.id,
-        photo="https://iili.io/KuCBoV2.jpg",
-        caption=caption,
+        text=caption,
         reply_markup=keyboard
     )
     
@@ -81,12 +80,9 @@ async def back_to_main_menu(client, callback_query):
     first_name = callback_query.from_user.first_name
     caption = f"✨ **Welcome [{first_name}](tg://user?id={user_id}) in My uploader bot**"
     
-    await callback_query.message.edit_media(
-      InputMediaPhoto(
-        media="https://envs.sh/GVI.jpg",
-        caption=caption
-      ),
-      reply_markup=keyboard
+    await callback_query.message.edit_text(
+        caption,
+        reply_markup=keyboard
     )
     await callback_query.answer()  
 
