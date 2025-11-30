@@ -4,7 +4,7 @@ import random
 from pyromod import listen
 from pyrogram import Client, filters
 from pyrogram.types.messages_and_media import message
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InputMediaPhoto
 
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
 def register_settings_handlers(bot):
@@ -21,7 +21,6 @@ def register_settings_handlers(bot):
             [InlineKeyboardButton("🔄 Reset", callback_data="resset_command")],
             [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main_menu")]
         ])
-        # PHOTO REMOVED
         await callback_query.message.edit_text(
             caption,
             reply_markup=keyboard
@@ -36,7 +35,6 @@ def register_settings_handlers(bot):
             [InlineKeyboardButton("🎥 Video", callback_data="viideo_thumbnail_command"), InlineKeyboardButton("📑 PDF", callback_data="pddf_thumbnail_command")],
             [InlineKeyboardButton("🔙 Back to Settings", callback_data="setttings")]
         ])
-        # PHOTO REMOVED
         await callback_query.message.edit_text(
             caption,
             reply_markup=keyboard
@@ -51,7 +49,6 @@ def register_settings_handlers(bot):
             [InlineKeyboardButton("🎥 Video", callback_data="video_wateermark_command"), InlineKeyboardButton("📑 PDF", callback_data="pdf_wateermark_command")],
             [InlineKeyboardButton("🔙 Back to Settings", callback_data="setttings")]
         ])
-        # PHOTO REMOVED
         await callback_query.message.edit_text(
             caption,
             reply_markup=keyboard
